@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions Logs</title>
+    <script>
+        async function fetchLogs() {
+            const username = "your-github-username";
+            const repo = "your-repo-name";
+            const url = `https://api.github.com/repos/${username}/${repo}/actions/runs`;
+
+            const response = await fetch(url);
+            const data = await response.json();
+            
+            let logs = "<h2>Recent Workflow Runs</h2>";
+            data.workflow_runs.forEach(run => {
+                logs += `<p><strong>${run.name}</strong> - Status: ${run.status} (${run.conclusion || "In Progress"})</p>`;
+            });
+            
+            document.getElementById("logs").innerHTML = logs;
+        }
+    </script>
+</head>
+<body onload="fetchLogs()">
+    <h1>AI Scheduler - GitHub Actions Logs</h1>
+    <div id="logs">Loading...</div>
+</body>
+</html>
