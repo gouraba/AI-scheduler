@@ -1,0 +1,16 @@
+{
+  "tasks": [
+    {
+      "task_name": "Study for math exam",
+      "deadline": "2025-03-05 18:00",
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "task_name": "Complete chemistry lab report",
+      "deadline": "2025-03-02 10:00",
+      "priority": 2,
+      "status": "pending"
+    }
+  ]
+}
